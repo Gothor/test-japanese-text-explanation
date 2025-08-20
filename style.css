@@ -1,0 +1,146 @@
+body {
+    font-size: 2em;
+    max-width: 800px;
+    margin: auto;
+}
+
+.stanza {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0.5em;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+}
+
+.group:hover,
+.group.active {
+    border-bottom: 1px solid red;
+}
+
+.word,
+.particle {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid transparent;
+}
+
+.word:hover,
+.word.active,
+.particle:hover,
+.particle.active {
+    border-bottom: 1px solid green;
+}
+
+.ruby {
+    display: flex;
+    flex-direction: column;
+}
+
+.rt {
+    font-size: 50%;
+    height: 1.5em;
+    text-align: center;
+    opacity: 0;
+}
+
+.ruby.visible>.rt {
+    opacity: 1;
+}
+
+.rb {
+    line-height: 1em;
+    text-align: center;
+}
+
+.group,
+.word,
+.particle {
+    position: relative;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 0.6em;
+    padding: 0.5em 0.8em;
+    border-radius: 3px;
+    top: 3.5em;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    z-index: 1000;
+    width: 500px;
+}
+
+.tooltip > .grammar {
+    white-space: normal;
+}
+
+.group > .tooltip {
+    top: 12em;
+}
+
+[data-referer-id]>.tooltip {
+    top: 7em;
+}
+
+.group:hover>.tooltip,
+.word:hover>.tooltip,
+.particle:hover>.tooltip {
+    display: block;
+}
+
+.tooltip .title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.tooltip .families {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.tooltip .families .family {
+    display: inline;
+}
+
+.tooltip .families .family+.family::before {
+    content: ', ';
+}
+
+/* [data-id]::before {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    content: attr(data-id);
+    font-size: 0.5em;
+}
+
+[data-id] [data-id]::before {
+    left: 15px;
+}
+
+[data-id] [data-id] [data-id]::before {
+    left: 30px;
+} */
+
+.leader-line {
+    z-index: 10000;
+}
+
+.leader-line text {
+    stroke-width: 10px !important;
+}
